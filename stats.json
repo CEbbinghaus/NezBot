@@ -1,0 +1,53 @@
+{
+	"stats": {
+		"auto" : {
+			"adrenaline" : "Gain HP by a certain percent.",
+			"agression" : "The stat stated will scale and replace the attack stat.",
+			"battle rush" :"Gain HP and SP by a certain percent.",
+			"buff breaker": "Removes all buffs on the target that was hit, does not include shields.",
+			"hp siphon": "Gains health in proportion to the amount of damage dealt.",
+			"morale boost": "Gain SP by a certain percent.",
+			"predator": "the target deals more damage against a certain type by a certain percentage, if no type is specified it affects all types.",
+			"purification": "Dispels all debuffs.",
+			"shield breaker": "Removes the attacked target's shield.",
+			"blue soul boon": "When a killed enemy drops red souls blue souls will also be dropped.",
+			"red boul boon": "When a damaged enemy drops blue souls red souls will also be dropped.",
+			"sp siphon": "Steals a certain percentage of the enemies' SP.",
+			"stalker": "Increases critical hit rate.",
+			"hunter" : "Increases critical hit damage.",
+			"elemental edge" : "Target's attacks are always treated as the hit enemies' elemental weakness.",
+			"courageous strike" : "Deals more damage the more health the target getting hit has.",
+			"merciless strike" : "For each debuff on the the enemy the attacker gains 20% extra attack, capping at 200%."
+		},
+		"debuff":{
+			"defense down": "Lowers the defense of the afflicted target by 70%.",
+			"dttack down": "Lowers the attack of the afflicted target by 50%.",
+			"stun": "Causes the afflicted target to miss their turn.",
+			"shock": "Causes the afflicted target to miss their turn and also lowers their defense by 50%.",
+			"fatigue": "The afflicted target cannot gain SP from blue souls.",
+			"petrification": "Causes the afflicted to miss their turn but increases their defense by 1000%.",
+			"blind": "Lowers the critical hit chance and critical hit damage of the afflicted astromon.",
+			"recovery down": "Lowers the amount of healing the afflicted astromon recieves by 50%.",
+			"sap": "The afflicted astromon will take 5% total of their healthbar as damage, if the afflicted is a titan they take 5000 damage instead.",
+			"seal": "Nullifies all the afflicted astromon's passives.",
+			"silence": "Prevents the afflicted from using their active skill.",
+			"sleep": "Causes the afflicted to miss their turn, if they are hit they will wake up, sap damage does not wake them up.",
+			"taunt": "Causes the afflicted to attack the person who afflicted them without fail, also theorized to lower attack by 10%.",
+			"thirst": "Lowers the afflicted's SP by a certain amount at the start of the turn.",
+			"expose weakness": "All hits on the afflicted deal double damage."
+		},
+		"buff" : {
+			"azure apirit's bounty": "Increases the target's SP recovery.",
+			"attack up": "Increases the target's attack by 50%.",
+			"defense up": "Increases the target's defense by 70%.",
+			"shield": "Grants a shield that protects from a certain amount of damage or status effects dependent on specific factors.",
+			"zeal": "Restores a set percentage of the target's SP at the beginning of the turn.",
+			"vigor": "Restores a set percentage of the target's HP at the beginning of the turn.",
+			"recovery up": "Increases the target's recovery by 50%.",
+			"resilience": "The target gains SP in exact proportion to their HP.",
+			"vengeance": "Increase attack in proportion to the amount of HP lost.",
+			"dominance": "Decrease the target's SP by the amount of damage dealt by the afflicted."
+		}
+	},
+	"capture" : "Currently the capture event is for Tanya.\nYou can capture fire and fuse two evo 2 Tanyas for a light or dark respectively.\nYou can buy a package for 990 gems which would get you 4 fire Tanyas.\n300 crystals will get you a variant fire Tanya from the crystal shop.\nHer rarity is above S.Rare but not legendary."
+}
