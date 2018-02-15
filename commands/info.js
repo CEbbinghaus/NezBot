@@ -6,7 +6,7 @@ module.exports = {
 		perms: []
 	},
 	run: (c, a, m, b) => {
-		let M = b.guilds.get("357862756248190976").members;
+		let M = b.users;
 		let e = new RichEmbed()
 		.setTitle("Info")
 		.setColor("#8CD68C")
