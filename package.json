@@ -1,0 +1,24 @@
+{
+  "name": "nezbot",
+  "version": "1.0.0",
+  "description": "...",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^11.3.0",
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "pm2 start . --name=NezBot --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CEbbinghaus/NezBot.git"
+  },
+  "author": "CEbbinghaus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CEbbinghaus/NezBot/issues"
+  },
+  "homepage": "https://github.com/CEbbinghaus/NezBot#readme"
+}
