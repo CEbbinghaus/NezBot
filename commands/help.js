@@ -1,6 +1,7 @@
 const {RichEmbed} = require("discord.js");
 const stats = require("../stats.json");
 const fs = require("fs");
+const setMsg = require("./func/setMsg.js")
 module.exports = {
 	help : {
 		use: "help",
@@ -17,8 +18,11 @@ module.exports = {
 			.setColor("#34ff74")
 			.addField("Intro:", "Hi! I'm Nez! I'm kinda like an astromon... But I know alot about status effects and passives! That nerdy guy told me about them and so did that pink girl. You can ask me anything about them, I should remember right.")
 			let r = "";//'```\n';
-			fs.readdir('./commands/', (err, files) => {
-				if(err)return m.reply("Im sorry i ran into an error. react with ❓ to send a error report to the dev").then(m => m.react("❓"));
+			fs.readdir('./commads/', (err, files) => {
+				if(err){
+					m.reply("Im sorry i ran into an error. react with ❓ to send a error report to the dev").then(mg => {mg.react("❓");setMsg.setErrReact(b, mg, m, "❓", err.toString());})
+					return 
+				}
 				files.forEach((f, i) => {
 					if(!f.endsWith(".js"))return files.splice(i, 1);
 					let h = require("./" + f).help;

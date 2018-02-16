@@ -2,12 +2,22 @@ const {Client, RichEmbed} = require("discord.js");
 
 const settings = require("./settings.json")
 
+const sql = require("sqlite");
+
 const bot = new Client();
+bot.servers = new Map();
 
 let debug = true;
 
 bot.on("ready", () => {
-	console.log(`I am up and running on ${bot.guilds.size} servers`);
+	bot.guilds.forEach(g => {
+		let s = {channels:{}};
+		g.channels.forEach(c => {s.channels[g.id] = []});
+		s.messages = [];
+		s.reacts = new Map();
+		bot.servers.set(g.id, s);
+	})
+	console.log(`I am up and running on ${bot.guilds.size} servers for a total of ${bot.users.size} members`);
 })
 
 bot.on("message", m => {
@@ -27,6 +37,14 @@ bot.on("message", m => {
 	}
 })
 
+
+bot.on("messageReactionAdd", r => {
+	let m = r.message;
+	let f = bot.servers.get(m.guild.id).reacts.get(m.id);
+	if(!f || r.users.map(v => v.id).indexOf(f.aid) == -1 /*|| r.emoji != f.r*/) return;
+	console.log('sending');
+	f.send();
+})
 
 
 bot.login(settings.token);
