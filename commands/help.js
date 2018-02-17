@@ -18,7 +18,7 @@ module.exports = {
 			.setColor("#34ff74")
 			.addField("Intro:", "Hi! I'm Nez! I'm kinda like an astromon... But I know alot about status effects and passives! That nerdy guy told me about them and so did that pink girl. You can ask me anything about them, I should remember right.")
 			let r = "";//'```\n';
-			fs.readdir('./commads/', (err, files) => {
+			fs.readdir('./commands/', (err, files) => {
 				if(err){
 					m.reply("Im sorry i ran into an error. react with ❓ to send a error report to the dev").then(mg => {mg.react("❓");setMsg.setErrReact(b, mg, m, "❓", err.toString());})
 					return 
@@ -46,5 +46,5 @@ module.exports = {
 	}
 }
 String.prototype.addInfo = function(n = null){
-	return this + (n ? "\n" : "") + "* means its optional";
+	return this + (n ? "\n" : "") + `* means its optional\n# means you need to use help [command] to find out more`;
 }
