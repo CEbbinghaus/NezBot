@@ -9,6 +9,7 @@ bot.servers = new Map();
 
 process.features.debug = true
 
+let id;
 
 const handleMessage = m => {
 	if(m.author.bot)return;
@@ -19,16 +20,23 @@ const handleMessage = m => {
 	switch(command){
 
 	}
+	if(m.author.id == id){
+		m.author.isDev = true;
+	}
 	try{
 		let cmd = require(`./commands/${command.toLowerCase()}.js`);
 		cmd.run(command, args, m, bot, o);
 	}catch(err){
-		process.features.debug ? console.log(err) : m.channel.send("Sorry there is no command with the name: " + command)
+		m.react("❌")
+		console.log(err);
 	}
 }
 
 
 bot.on("ready", () => {
+	bot.fetchApplication().then(o => {
+		id = o.owner.id
+	})
 	bot.guilds.forEach(g => {
 		let s = {channels:{}};
 		g.channels.forEach(c => {s.channels[g.id] = []});
@@ -43,10 +51,10 @@ bot.on("message", m => {
 	handleMessage(m)
 })
 
-bot.on("editMessage", (om, nm) => {
+bot.on("messageUpdate", (om, nm) => {
 	handleMessage(nm);
 })
-
+	
 bot.on("messageReactionAdd", r => {
 	let m = r.message;
 	let f = bot.servers.get(m.guild.id).reacts.get(m.id);
@@ -56,8 +64,8 @@ bot.on("messageReactionAdd", r => {
 })
 process.on('unhandledRejection', console.error)
 bot.login(settings.token);
-// 
-// let stt = require("./commands/func/stat.js")
+
+// let stt = require("./commands/db.js")
 // let m = {
 //   channel:{
 //     send: v => {
@@ -65,4 +73,4 @@ bot.login(settings.token);
 //     }
 //   }
 // }
-// stt.stat("buff", ["zal"], m)
+// stt.run("db", ["edit", "extra", "(capture)", "(you or your loved one might be eligible for a compensation)"], m)
