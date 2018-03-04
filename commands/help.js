@@ -1,6 +1,6 @@
 const { RichEmbed } = require("discord.js");
 const stats = require("../stats.json");
-const db = require("../classes/db.js");
+const db = require("vsqlite");
 const dataBase = new db();
 const fs = require("fs");
 const setMsg = require("./func/setMsg.js")
@@ -32,7 +32,7 @@ module.exports = {
 					r += `${f.slice(0, f.length - 3)}:\n${h.desk}\n\n`;
 				})
 				e.addField("Commands:", r + "\n\n")
-				dataBase.open("MSL").then(ma => {
+				dataBase.open("MSL", "./databases").then(ma => {
 					ma.listTables().then(async t => {
 						let r = "";
 						for(let [k, v] of t.entries()){

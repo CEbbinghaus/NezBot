@@ -1,5 +1,5 @@
 const stats = require("../stats.json");
-const db = require("../classes/db.js")
+const db = require("vsqlite")
 const dataBase = new db();
 const {RichEmbed} = require("discord.js");
 module.exports = {

@@ -1,10 +1,10 @@
-const db = require("../../classes/db.js");
+const db = require("vsqlite");
 const DataBase = new db();
 const {RichEmbed} = require("discord.js");
 
 
 module.exports.stat = async (args, m) => {
-	await DataBase.open("MSL").then(async db => {
+	await DataBase.open("MSL", "./databases").then(async db => {
 			let k = args.shift();
 			let table = db.open(k)
 			let res = [];

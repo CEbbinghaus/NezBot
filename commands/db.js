@@ -1,4 +1,4 @@
-const db = require("../classes/db.js");
+const db = require("vsqlite");
 const dataBase = new db();
 module.exports = {
 	help: {
@@ -11,11 +11,8 @@ module.exports = {
 	},
 	run: function(c, args, m){
 		if(!m.member.hasPermission(this.help.perms) && !m.author.isDev)return m.react("❌");
-		dataBase.open("MSL").then(mb => {
+		dataBase.open("MSL", "./databases").then(mb => {
 			let r = /\((.+)\)/gi.exec(args.join(" "));
-			// try{
-			// }catch(co){console.log(co);}
-			console.log(r);
 			//if(!r)return m.react("❌");
 			mb.listTables().then(async t => {
 			if(t.has(args[1])){
